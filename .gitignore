@@ -1,0 +1,6 @@
+enki_trial/
+env/
+.vscode/
+app-flickrperson/
+data/
+dump.rdb
