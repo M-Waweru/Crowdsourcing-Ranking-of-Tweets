@@ -1,10 +1,3 @@
-[![Scifabric](https://img.shields.io/badge/made%20by-scifabric-blue.svg)](https://scifabric.com/)
-[![Build Status](https://circleci.com/gh/Scifabric/pybossa/tree/master.svg?style=shield)](https://circleci.com/gh/Scifabric/pybossa)
- [![Coverage Status](https://img.shields.io/coveralls/Scifabric/pybossa.svg)](https://coveralls.io/r/Scifabric/pybossa?branch=master)
-[![Documentation](https://readthedocs.org/projects/pybossa/badge/?version=latest)](http://docs.pybossa.com) [![License](http://img.shields.io/badge/license-agplv3-b75bb6.svg)](http://www.gnu.org/licenses/agpl-3.0.html) [![Join the chat at https://gitter.im/Scifabric/pybossa](https://badges.gitter.im/Scifabric/pybossa.svg)](https://gitter.im/Scifabric/pybossa?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3882334.svg)](https://doi.org/10.5281/zenodo.3882334)
-[![Scifabric's Patreon](https://img.shields.io/badge/support%20us%20on-patreon-orange.svg)](https://www.patreon.com/bePatron?u=4979179)
-
 # What is PYBOSSA?
 
 PYBOSSA is a technology built by [Scifabric](https://scifabric.com), for crowdsourcing or citizen science platforms.
@@ -35,28 +28,6 @@ PYBOSSA runs in python >= 3.6. While 3.8 has been released recently, it needs te
 
 If you have a python2.7 server, please, checkout the python2.7 branch and use that one for your server.
 
-## Get professional support
-
-You can hire us to help you with your PYBOSSA project or server (specially for python 2.7). Go to our website, and [contact us](https://scifabric.com/).
-
-
-### Supporting PYBOSSA
-
-PYBOSSA is an open source project. Its ongoing development is made possible thanks to the support by these awesome
-[backers](https://github.com/Scifabric/pybossa/blob/master/BACKERS.md). If you'd like to join them, check out
-[Scifabric's Patreon campaign](https://www.patreon.com/scifabric).
-
-
-Actividad subvencionada por el Ministerio de Educación, Cultura y Deporte
-
-![Ministerio de Educación, Cultura y Deporte](http://i.imgur.com/4ShmIt1.jpg)
-
-
-# See it in Action
-
-PYBOSSA powers [Nightup](https://nightup.icfo.eu/) and [MicroPast](http://crowdsourced.micropasts.org/), [LibCrowds](https://www.libcrowds.com/), [Lost at Night](https://lostatnight.org/) and many more projects.
-
-For a full list of PYBOSSA projects, check our [case studies](https://scifabric.com/) and [blog](https://scifabric.com/blog/).
 
 # Installing and Upgrading
 
@@ -66,53 +37,36 @@ columns, etc, in the DB model. See the [Updating Section](https://docs.pybossa.c
 
 See [installation instructions](https://docs.pybossa.com/installation/gettingstarted/).
 
-# Testing
+# Running the Server
+After following the Installation guide above
 
-## Unit testing
+Commands to run once installed:
 
-Just run:
+1. python3 -mvenv env
 
-```
-  nosetests test/
-```
+2. source env/bin/activate
 
-## Browser testing
+3. redis-server
 
-[![BrowserStack](http://i.imgur.com/Pg0utrk.png)](http://browserstack.com/)
+4. rqscheduler --host 127.0.0.1
 
-Thanks to the support of [BrowserStack](http://browserstack.com/) we can do real cross browser testing on multiple desktop and mobile platforms.
+5. redis-server contrib/sentinel.conf --sentinel
 
-# Contributing
+6. python app_context_rqworker.py scheduled_jobs super high medium low email maintenance
 
-If you want to contribute to the project, please, check the
-[CONTRIBUTING file](CONTRIBUTING.md).
+7. sudo service postgresql restart
 
-It has the instructions to become a contributor.
+8. python run.py
 
-## Pull requests
 
-Please, use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) when sending your pull requests, as well as tests and documentation for your fix or improvement. It will help us to fully understand what you are solving or improving, and it will let the community know what's going one with the new feature or fix.
+Commands to remember in installation:
+1. Install python-ldap
+apt-get install build-essential python3-dev python2.7-dev \
+    libldap2-dev libsasl2-dev slapd ldap-utils tox \
+    lcov valgrind
 
-# Changelog
-
-Read [CHANGELOG](CHANGELOG.md)
-
-## Acknowledgments
-
-* [Citizen Cyberscience Centre](http://www.citizencyberlab.org/)
-* [Open Knowledge Foundation](http://okfn.org/)
-* [FontAwesome fonts](http://fortawesome.github.com/Font-Awesome/)
-* [GeoLite data by MaxMind](http://www.maxmind.com)
-* [yaycryptopan](https://github.com/keiichishima/yacryptopan)
-
-Special thanks to Shuttleworth Foundations for funding us and their true support:
-* [Shuttleworth Foundation](https://www.shuttleworthfoundation.org/)
-![Shuttleworth Foundation Funded](http://pybossa.com/assets/img/shuttleworth-funded.png)
-
-PYBOSSA was inspired by the [BOSSA](http://bossa.berkeley.edu/) crowdsourcing engine but is written in
-python (hence the name!). It can be used for any distributed tasks project
-but was initially developed to help scientists and other researchers
-crowd-source human problem-solving skills!
+2. Install wheel in virtualenv
+pip install wheel
 
 ## Copyright / License
 
