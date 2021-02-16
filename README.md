@@ -12,16 +12,21 @@ This is an open source framework was used to create the interactive results dash
 
 Note: For more details on how to install them, please find documentation links below on how to get started.
 
-Pybossa Server Installation links:
-1.	[Installation of Pybossa] (https://docs.pybossa.com/installation/gettingstarted/)
-2.	https://docs.pybossa.com/installation/guide/
-3.	https://docs.pybossa.com/installation/configuration/
-4.	https://docs.pybossa.com/build/pbs/ - used to install the project 
-Deployment links:
-1.	https://docs.pybossa.com/installation/deployment/
-API for Pybossa 
-1.	https://github.com/Scifabric/enki - this was used in the Streamlit application
-2.	https://github.com/Scifabric/webhooks 
-3.	https://docs.pybossa.com/build/webhooks/ - documentation on webhooks for real-time analysis
-Streamlit Documentation
-1.	https://docs.streamlit.io/en/stable/getting_started.html
+#### Pybossa Server Installation links:
+1.	[Getting started](https://docs.pybossa.com/installation/gettingstarted/)
+2.	[Installation](https://docs.pybossa.com/installation/guide/)
+3.	[Configuration](https://docs.pybossa.com/installation/configuration/)
+4.	[Using command line](https://docs.pybossa.com/build/pbs/) - used to install the project 
+
+#### Deployment links:
+1.	[Deployment Process](https://docs.pybossa.com/installation/deployment/)
+    * Look at [Pybossa](../pybossa) README for more details
+
+#### API for Pybossa 
+1.	[Learn about the Enki API and how to install it](https://github.com/Scifabric/enki) - this was used in the Streamlit application
+2.	[Learn about the webhook application for real-time data analysis](https://github.com/Scifabric/webhooks)
+    * This is a different method from using Streamlit. However, it is not operational
+3.	[Official Documentation for webhooks](https://docs.pybossa.com/build/webhooks/) - documentation on webhooks for real-time analysis
+
+##### Streamlit Documentation
+1.	[Learn about Streamlit](https://docs.streamlit.io/en/stable/getting_started.html)
