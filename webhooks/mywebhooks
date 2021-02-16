@@ -1,0 +1,46 @@
+server {
+    listen      5002;
+    server_name  127.0.0.1;
+    large_client_header_buffers 4 32k;
+    real_ip_header X-Forwarded-For;
+
+    # change that to your pybossa directory
+    root /mnt/d/Schoolwork/ISProject/Test/webhooks;
+
+    client_max_body_size 5M;
+
+error_page 503 @maintenance;
+
+location / {
+    include uwsgi_params;
+    uwsgi_pass unix:///tmp/mywebhook.sock;
+
+    #proxy_pass http://127.0.0.1:5002/;
+}
+
+#location  /static {
+#
+ #           # change that to your pybossa static directory
+  #          alias /mnt/d/Schoolwork/ISProject/Test/webhooks/templates;
+#
+ #           autoindex on;
+  #          expires max;
+   #     }
+
+location ~ /api/app {
+        rewrite ^/api/app /api/project$1 permanent;
+}
+
+location ~ /app {
+        rewrite ^/app(.*) /project$1 permanent;
+}
+
+error_page 503 @maintenance;
+
+location @maintenance {
+    if ($uri !~ ^/static/) {
+          rewrite ^(.*)$ /503.html break;
+        }
+}
+
+}

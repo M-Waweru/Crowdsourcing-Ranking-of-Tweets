@@ -1,0 +1,12 @@
+[program:webhooks]
+command=/mnt/d/Schoolwork/ISProject/Test/webhooks/env/bin/uwsgi /mnt/d/Schoolwork/ISProject/Test/webhooks/webhooks.ini
+directory=/mnt/d/Schoolwork/ISProject/Test/webhooks
+autostart=true
+autorestart=true
+priority=920
+user=pybossa
+log_stdout=true
+log_stderr=true
+logfile=/var/log/webhooks.log
+logfile_maxbytes=10MB
+logfile_backups=2

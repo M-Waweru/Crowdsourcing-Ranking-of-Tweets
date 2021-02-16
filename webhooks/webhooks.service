@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve webhooks
+After=network.target
+
+[Service]
+User=pybossa
+Group=www-data
+WorkingDirectory=/mnt/d/Schoolwork/ISProject/Test/webhooks
+Environment="PATH=/mnt/d/Schoolwork/ISProject/Test/webhooks/env/bin"
+ExecStart=/mnt/d/Schoolwork/ISProject/Test/webhooks/env/bin/uwsgi --ini webhooks.ini
+
+[Install]
+WantedBy=multi-user.target

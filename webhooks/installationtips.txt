@@ -1,0 +1,16 @@
+Webhooks installation:
+https://docs.pybossa.com/build/webhooks/
+
+Deploying the flask application:
+- The process is similar to pybossa
+- webhooks.ini == pybossa.ini, webhook.conf == pybossa.conf .etc
+
+
+https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04
+
+For server deployment:
+pip install uwsgi
+
+
+
+

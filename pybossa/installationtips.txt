@@ -1,0 +1,33 @@
+Commands to run in development server:
+
+https://docs.pybossa.com/installation/guide/
+
+1. python3 -mvenv env
+
+2. source env/bin/activate
+
+3. redis-server
+
+4. rqscheduler --host 127.0.0.1
+
+5. redis-server contrib/sentinel.conf --sentinel
+
+6. python app_context_rqworker.py scheduled_jobs super high medium low email maintenance
+
+7. sudo service postgresql restart
+
+8. python run.py
+
+Deployment:
+
+https://docs.pybossa.com/installation/deployment/
+
+Commands to remember in installation:
+
+1. Install python-ldap
+apt-get install build-essential python3-dev python2.7-dev \
+    libldap2-dev libsasl2-dev slapd ldap-utils tox \
+    lcov valgrind
+
+2. Install wheel in virtualenv
+pip install wheel
